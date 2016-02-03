@@ -2,11 +2,11 @@
 
 A Madmimi integration for Spree. It's customized for my application (Retroca) but you are free to use it as a base to your own integration.
 
-For now, it only implements subscription functionality.
+For now, it only implements subscription and unsubscription functionality.
 
 Requires the original Madmimi gem: https://github.com/madmimi/madmimi-gem
 
-About Madmim: deliver emails, track statistics, and manage your subscriber base with ease.
+**About Madmim:** deliver emails, track statistics, and manage your subscriber base with ease.
 
 ## Installation
 
