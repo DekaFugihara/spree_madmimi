@@ -6,3 +6,6 @@ pt-BR:
       subscribe:
         blank_email: Email está em branco
         email_invalid: Email inválido
+        already_subscribed: Este email já está inscrito na nossa Newsletter!
+      signup:
+        subscribed_label: Receba nossas novidades por email

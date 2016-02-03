@@ -6,3 +6,6 @@ en:
       subscribe:
         blank_email: Missing email
         email_invalid: Invalid email
+        already_subscribed: This email is already subscribed to our newsletter
+      signup:
+        subscribed_label: Subscribe to our news

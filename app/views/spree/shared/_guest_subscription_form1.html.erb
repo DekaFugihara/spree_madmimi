@@ -1,32 +1,34 @@
-<%= form_tag :madmimi_subscribe do %>
+<% @subscriber ||= Spree::Subscriber.new %>
+<%= form_for @subscriber, :url => :madmimi_subscribe do |f| %>
 	<input type="hidden" name="show_success_lightbox" value="false">
  	<p class="text_field">
-		<%= label_tag :email, "Email*:" %><br />
-		<%= email_field_tag :email, "", { id: "subscribe_email" } %>
+		<%= f.label :email, "Email*:" %><br />
+		<%= f.email_field :email, { id: "subscribe_email" } %>
+		<span class="email_error"></span>
 	</p>
 
 	<p class="text_field">
-		<%= label_tag :nome, "Primeiro Nome:" %><br />
-		<%= text_field_tag :nome, "", :placeholder => "Opcional" %>
+		<%= f.label :nome, "Primeiro Nome:" %><br />
+		<%= f.text_field :nome, :placeholder => "Opcional" %>
 	</p>
 
  	<p class="radio_field">
-		<input checked="checked" id="user_type_both" name="user_type" type="radio" value="Me Interessa Comprar e Vender">
-		<label for="user_type_both">Me Interessa Comprar e Vender</label>
+ 		<%= f.radio_button :profile, "Me Interessa Comprar e Vender" %>
+ 		<%= f.label :profile_me_interessa_comprar_e_vender %>
 
-		<input id="user_type_buy" name="user_type" type="radio" value="Me Interessa Apenas Comprar">
-		<label for="user_type_buy">Me Interessa Apenas Comprar</label>
+ 		<%= f.radio_button :profile, "Me Interessa Apenas Comprar" %>
+ 		<%= f.label :profile_me_interessa_apenas_comprar %>
 
-		<input id="user_type_sell" name="user_type" type="radio" value="Me Interessa Apenas Vender">
-		<label for="user_type_sell">Me Interessa Apenas Vender</label>
+ 		<%= f.radio_button :profile, "Me Interessa Apenas Vender" %>
+ 		<%= f.label :profile_me_interessa_apenas_vender %>
 	</p>
 
 	<p class="checkbox_field">
-		<%= check_box_tag :subscribed %>
-		<%= label_tag :subscribed, "Quero receber meu Cupom de 10% e Promoções por Email*" %>
+		<%= f.check_box :subscribed %>
+		<%= f.label :subscribed, "Quero receber meu Cupom de 10% e Promoções por Email*" %>
 	</p>
 
 	<p class="button-container">
-		<%= submit_tag "Cadastre-se e ganhe seu cupom", :class => 'submit button pink d3 mid', :id => 'op_subscribe', :onclick => "ga('send', 'event', { eventCategory: 'Newsletter', eventAction: 'Subscription', eventLabel: 'Landing Cadastro'});" %>
+		<%= f.submit "Cadastre-se e ganhe seu cupom", :class => 'submit button pink d3 mid', :id => 'op_subscribe', :onclick => "ga('send', 'event', { eventCategory: 'Newsletter', eventAction: 'Subscription', eventLabel: 'Landing Cadastro'});" %>
 	</p>
 <% end %>

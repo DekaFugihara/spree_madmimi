@@ -19,10 +19,10 @@
 
   <% else %>
 
-  $("#spree_user_email").val("<%= @email %>");
-  $("#spree_user_firstname").val("<%= @nome %>");
+  $("#spree_user_email").val("<%= @subscriber.email %>");
+  $("#spree_user_firstname").val("<%= @subscriber.nome %>");
   $("#spree_user_subscribed").val(1);
-  $("#spree_user_profile").val("<%= @profile %>");
+  $("#spree_user_profile").val("<%= @subscriber.profile %>");
   $("#landing_form .errors").hide();
   $("#landing_form .first-step").hide();
   $("#landing_form .second-step").show();

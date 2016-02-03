@@ -1,4 +1,5 @@
-<%= form_tag :madmimi_subscribe do %>
-  <%= email_field_tag :email, "", :placeholder => t("spree.madmimi.subscription_email_placeholder") %>
-  <%= submit_tag t("spree.madmimi.subscription_submit_button") %>
+<% @subscriber ||= Spree::Subscriber.new %>
+<%= form_for @subscriber, :url => :madmimi_subscribe do |f| %>
+  <%= f.email_field :email, :placeholder => t("spree.madmimi.subscription_email_placeholder") %>
+  <%= f.submit t("spree.madmimi.subscription_submit_button") %>
 <% end %>
