@@ -1,0 +1,8 @@
+en:
+  spree:
+    madmimi:
+      subscription_email_placeholder: Insert your email here!
+      subscription_submit_button: Subscribe
+      subscribe:
+        blank_email: Missing email
+        email_invalid: Invalid email

@@ -1,0 +1,10 @@
+<%= form_tag :madmimi_subscribe, :id => "newsletter_form2" do %>
+  <div class="user_type">
+    <input type="hidden" id="user_type" name="user_type" value="Me Interessa Comprar e Vender">
+    <b>Tenho interesse em:</b>
+    <input type="checkbox" id="usertype_buyer" name="usertype_buyer" value="Me Interessa Apenas Comprar" checked="checked"><label for="usertype_buyer">Comprar</label>
+    <input type="checkbox" id="usertype_seller" name="usertype_seller" value="Me Interessa Apenas Vender" checked="checked"><label for="usertype_seller">Vender</label>
+  </div>
+  <%= email_field_tag :email, "", :placeholder => t("spree.madmimi.subscription_email_placeholder"), :id => 'subscribe_email' %>
+  <%= submit_tag t("spree.madmimi.subscription_submit_button"), :class => 'submit', :id => 'op_subscribe' %>
+<% end %>

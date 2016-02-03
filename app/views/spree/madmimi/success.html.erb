@@ -1,0 +1,25 @@
+<% content_for :head do %>
+<% title = "Retroca" %>
+<%= stylesheet_link_tag 'white/lightbox' %>
+<style type="text/css">
+#newsletter-subscription-fail{
+  font-family: 'terminal_dosismedium';
+  padding: 30px 50px;
+}
+#newsletter-subscription-fail h1{
+  font-size: 30px;
+}
+#newsletter-subscription-fail a{
+  font-size: 24px;
+}
+#newsletter-subscription-success{
+  background: url('/assets/store/images/newsletter_bg_success.jpg') no-repeat 0 0;
+  width: 800px;
+  height: 540px;
+}
+</style>
+<% end %>
+
+
+<% flash[:notice] = nil %>
+<div id="newsletter-subscription-success"></div>

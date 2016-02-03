@@ -1,0 +1,32 @@
+<%= form_tag :madmimi_subscribe, :id => "newsletter_form3" do %>
+  <div class="user_type">
+    <input type="hidden" name="user_type" value="Me Interessa Comprar e Vender">
+    <span>Tenho interesse em:</span>
+    <input type="checkbox" id="usertype_seller" name="usertype_seller" value="Me Interessa Apenas Vender" checked="checked"><label for="usertype_seller">Vender</label>
+    <input type="checkbox" id="usertype_buyer" name="usertype_buyer" value="Me Interessa Apenas Comprar" checked="checked"><label for="usertype_buyer">Comprar</label>
+  </div>
+  <span id="newsletter-icon1">mail-icon</span>
+  <%= email_field_tag :email, "", :placeholder => "Deixe seu email para receber nossas novidades", :id => 'subscribe_email' %>
+  <button id="newsletter-icon2" type="submit" class="button"><span></span></button>
+<% end %>
+
+<% content_for :script do %>
+<script type="text/javascript">
+$("#newsletter_form3 input[type=checkbox]").on("change", function(){
+  if($(this).is(":checked")){
+    if($(this).siblings("input[type=checkbox]").first().is(":checked")){
+      $("#newsletter_subscribe_wrap input[name=user_type]").val("Me Interessa Comprar e Vender");
+    } else {
+      $("#newsletter_subscribe_wrap input[name=user_type]").val($(this).val());
+    }
+  } else {
+    if($(this).siblings("input[type=checkbox]").first().is(":checked")){
+      $("#newsletter_subscribe_wrap input[name=user_type]").val($(this).siblings("input[type=checkbox]").first().val());
+    } else {
+      alert("Pelo menos um deve estar selecionado!");
+      $(this)[0].checked = true;
+    }
+  }
+});
+</script>
+<% end %>

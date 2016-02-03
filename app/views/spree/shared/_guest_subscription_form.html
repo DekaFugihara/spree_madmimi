@@ -1,0 +1,4 @@
+<%= form_tag :madmimi_subscribe do %>
+  <%= email_field_tag :email, "", :placeholder => t("spree.madmimi.subscription_email_placeholder") %>
+  <%= submit_tag t("spree.madmimi.subscription_submit_button") %>
+<% end %>

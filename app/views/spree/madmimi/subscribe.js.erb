@@ -1,0 +1,41 @@
+<% if @errors.empty? %>
+
+	<% if @show_success_lightbox %>
+
+	$.fancybox(
+    { 'href' : "/madmimi/success",
+      'titleShow' : false,
+      'overlayOpacity': 0.5,
+      'overlayColor' : '#000',
+      'centerOnScroll' : true,
+      'padding' : 0,
+      'type' : 'iframe',
+      'enableEscapeButton' : true,
+      'width' : 800,
+      'height' : 540,
+      'showNavArrows' : false
+    }
+  );
+
+  <% else %>
+
+  $("#spree_user_email").val("<%= @email %>");
+  $("#spree_user_firstname").val("<%= @nome %>");
+  $("#spree_user_subscribed").val(1);
+  $("#spree_user_profile").val("<%= @profile %>");
+  $("#landing_form .errors").hide();
+  $("#landing_form .first-step").hide();
+  $("#landing_form .second-step").show();
+
+  <% end %>
+
+<% else %>
+
+$.fancybox(
+  '<h1><%= @errors.join(" , ") %></h1>',
+  {
+    'centerOnScroll' : true
+  }
+);
+
+<% end %>
