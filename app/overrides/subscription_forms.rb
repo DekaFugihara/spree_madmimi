@@ -15,6 +15,11 @@ Deface::Override.new(:virtual_path => "spree/home/newindex",
                      :insert_bottom => "[data-hook=subscription_form_checkbox]",
                      :partial      => "spree/shared/guest_subscription_form2")
 
+Deface::Override.new(:virtual_path => "spree/shared/_products",
+                     :name         => "madmimi_subscription_form_products",
+                     :insert_bottom => "[data-hook=subscription_form_checkbox]",
+                     :partial      => "spree/shared/guest_subscription_form2")
+
 Deface::Override.new(:virtual_path => "spree/info/comofunciona",
                      :name         => "madmimi_subscription_form_comofunciona",
                      :insert_bottom => "[data-hook=subscription_form_checkbox]",
