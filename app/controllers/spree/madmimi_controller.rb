@@ -27,7 +27,7 @@ module Spree
 
 	  		if params[:show_success_lightbox] == "false"
 	        @show_success_lightbox = false
-	        session[:return_user_to] = "/compre?from=landing_cadastro"
+	        session[:return_user_to] = root_url + "?from=landing_cadastro"
 	      else
 	      	@show_success_lightbox = true
 	      end
