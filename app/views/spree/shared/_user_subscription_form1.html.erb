@@ -1,9 +1,9 @@
 <div id="user-subscribe-container">
   <p>
-    <%= check_box :spree_user, :subscribed %>
+    <%= check_box :spree_user, :subscribed, { checked: true } %>
     <%= label :spree_user, :subscribed, t("spree.madmimi.signup.subscribed_label") %>
 
-    <div class="user_type" style="display:none">
+    <div class="user_type">
       <input type="hidden" id="profile" name="spree_user[profile]" value="<%= @spree_user.profile %>">
       Tenho interesse em:
       <input type="checkbox" id="usertype_buyer" name="usertype_buyer" value="Me Interessa Apenas Comprar" checked="checked"><label for="usertype_buyer">Comprar</label>
