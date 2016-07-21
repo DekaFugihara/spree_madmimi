@@ -13,7 +13,7 @@ Requires the original Madmimi gem: https://github.com/madmimi/madmimi-gem
 Add these lines to your application's Gemfile:
 
 ```ruby
-gem 'httparty', :git => 'git://github.com/DekaFugihara/httparty' # requirement for madmimi
+gem 'httparty' # requirement for madmimi
 gem 'spree_madmimi'
 ```
 
@@ -25,13 +25,24 @@ Or install it yourself as:
 
     $ gem install spree_madmimi
 
+And finally, import scripts and migrations and run the migrations:
+
+	$ rails g spree_madmimi:install
+
 ## Usage
 
-First, Edit and add these lines to your application's config/initializers/env_vars.rb
+First, set these environment variables in your application's initializer (config/initializers/env_vars.rb):
 
 ```ruby
 ENV['MAD_EMAIL'] = 'your_madmimi_login@email.com'
 ENV['MAD_APIKEY'] = 'y0ur_m4dm1m1_4p1_k3y'
+```
+
+Then add these to your initializer:
+
+```ruby
+# config/initizalizers/spree.rb
+Spree::PermittedAttributes.user_attributes.push :subscribed, :utm_term, :profile, :utm_source, :utm_medium, :utm_campaign
 ```
 
 ## Contributing

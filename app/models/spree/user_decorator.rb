@@ -1,6 +1,7 @@
 # coding: utf-8
+
 Spree::User.class_eval do
-	attr_accessible :subscribed
+	# attr_accessible :subscribed
 
 	after_save  :edit_subscription
 

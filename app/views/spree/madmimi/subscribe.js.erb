@@ -1,41 +1,27 @@
+console.log('[<%= @errors.join(" , ") %>]');
 <% if @errors.empty? %>
 
-	<% if @show_success_lightbox %>
+	<% if @alert_success %>
 
-	$.fancybox(
-    { 'href' : "/madmimi/success",
-      'titleShow' : false,
-      'overlayOpacity': 0.5,
-      'overlayColor' : '#000',
-      'centerOnScroll' : true,
-      'padding' : 0,
-      'type' : 'iframe',
-      'enableEscapeButton' : true,
-      'width' : 800,
-      'height' : 540,
-      'showNavArrows' : false
-    }
-  );
+  alert("<%= @subscriber.email %> inscrito com sucesso!");
+  console.log("success");
 
   <% else %>
 
-  $("#spree_user_email").val("<%= @subscriber.email %>");
-  $("#spree_user_firstname").val("<%= @subscriber.nome %>");
-  $("#spree_user_subscribed").val(1);
-  $("#spree_user_profile").val("<%= @subscriber.profile %>");
-  $("#landing_form .errors").hide();
-  $("#landing_form .first-step").hide();
-  $("#landing_form .second-step").show();
+  console.log("success2");
+
+  // $("#spree_user_email").val("<%= @subscriber.email %>");
+  // $("#spree_user_firstname").val("<%= @subscriber.nome %>");
+  // $("#spree_user_subscribed").val(1);
+  // $("#spree_user_profile").val("<%= @subscriber.profile %>");
+  // $("#landing_form .errors").hide();
+  // $("#landing_form .first-step").hide();
+  // $("#landing_form .second-step").show();
 
   <% end %>
 
 <% else %>
 
-$.fancybox(
-  '<h1><%= @errors.join(" , ") %></h1>',
-  {
-    'centerOnScroll' : true
-  }
-);
+alert('<%= @errors.join(" , ") %>');
 
 <% end %>

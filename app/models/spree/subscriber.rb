@@ -2,8 +2,6 @@
 module Spree
   class Subscriber < ActiveRecord::Base
     self.table_name = "spree_newsletter_subscribers"
-
-    attr_accessible :email, :nome, :utm_source, :utm_medium, :utm_campaign, :utm_term, :profile, :ubdate, :subscribed
     validates :email, presence: true
     
     def subscribe(list = "Retroca")
