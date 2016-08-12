@@ -3,7 +3,7 @@ module Spree
   class Subscriber < ActiveRecord::Base
     self.table_name = "spree_newsletter_subscribers"
     validates :email, presence: true
-    
+
     def subscribe(list = "Retroca")
     	mad_api.add_to_list(email, list, {
 			  :first_name => self.nome,

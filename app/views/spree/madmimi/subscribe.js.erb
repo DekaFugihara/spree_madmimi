@@ -1,22 +1,15 @@
 console.log('[<%= @errors.join(" , ") %>]');
+
 <% if @errors.empty? %>
 
 	<% if @alert_success %>
 
-  alert("<%= @subscriber.email %> inscrito com sucesso!");
+  alert("<%= @subscriber.email %> subscribed successfully!");
   console.log("success");
 
   <% else %>
 
   console.log("success2");
-
-  // $("#spree_user_email").val("<%= @subscriber.email %>");
-  // $("#spree_user_firstname").val("<%= @subscriber.nome %>");
-  // $("#spree_user_subscribed").val(1);
-  // $("#spree_user_profile").val("<%= @subscriber.profile %>");
-  // $("#landing_form .errors").hide();
-  // $("#landing_form .first-step").hide();
-  // $("#landing_form .second-step").show();
 
   <% end %>
 

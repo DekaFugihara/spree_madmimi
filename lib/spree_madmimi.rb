@@ -3,6 +3,7 @@ require "spree_madmimi/version"
 module SpreeMadmimi
   class Engine < Rails::Engine
     require 'madmimi'
+    require 'spree/core'
     isolate_namespace Spree
     engine_name 'spree_madmimi'
 

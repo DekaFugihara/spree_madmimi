@@ -43,7 +43,7 @@ module Spree
 					@subscriber.subscribe
 				end
 			end
-			
+
 			respond_to do |format|
 				format.js { render :layout => false }
 			end
@@ -69,6 +69,11 @@ module Spree
 			cookies.permanent[:utm_campaign] = cookies[:original_utm_campaign] if cookies[:original_utm_campaign]
 			cookies.permanent[:utm_medium] = cookies[:original_utm_medium] if cookies[:original_utm_medium]
 			cookies.permanent[:utm_term] = cookies[:original_utm_term] if cookies[:original_utm_term]
+
+			params[:subscriber][:utm_source] = cookies[:original_utm_source] if cookies[:original_utm_source]
+			params[:subscriber][:utm_campaign] = cookies[:original_utm_campaign] if cookies[:original_utm_campaign]
+			params[:subscriber][:utm_medium] = cookies[:original_utm_medium] if cookies[:original_utm_medium]
+			params[:subscriber][:utm_term] = cookies[:original_utm_term] if cookies[:original_utm_term]
 		end
 
 	end
