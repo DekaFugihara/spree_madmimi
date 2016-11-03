@@ -3,6 +3,8 @@ require 'madmimi'
 
 module Spree
 	class MadmimiController < Spree::StoreController
+		protect_from_forgery with: :null_session 
+		
 		# before_filter :load_api
 		before_filter :retrieve_utm_cookies, only: [:subscribe]
 		layout "spree/layouts/blank"
