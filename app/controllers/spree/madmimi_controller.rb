@@ -7,7 +7,10 @@ module Spree
 		
 		# before_filter :load_api
 		before_filter :retrieve_utm_cookies, only: [:subscribe]
-		layout "spree/layouts/blank"
+		layout "spree/layouts/spree_application"
+
+		before_action :load_subscriber, :only => :unsub
+		rescue_from ActiveRecord::RecordNotFound, :with => :redirect_to_home
 
 		# def load_api
 		#	 @mimi = MadMimi.new(ENV['MAD_EMAIL'], ENV['MAD_APIKEY'])
@@ -58,7 +61,32 @@ module Spree
 			end
 		end
 
+		def unsub
+			if @subscriber.is_subscribed?
+				begin
+					@subscriber.unsubscribe_from_all
+					@subscriber.destroy
+					flash[:notice] = "Inscrição retirada com sucesso"
+				rescue => e
+					flash[:notice] = "Não foi possível remover a inscrição"
+					puts e.message
+				end
+			else
+				flash[:notice] = "Inscrição retirada com sucesso"
+			end
+		end
+
 		private
+
+		def redirect_to_home
+    		flash[:error] = "Usuário não encontrado"
+    		redirect_to "/", :status => :moved_permanently
+  		end
+
+		def load_subscriber
+			user = Spree::User.find_by_referral_token(params[:id])
+			@subscriber = Spree::Subscriber.find_by_email!(user.email)
+		end
 
 		def subscriber_parameters
 			params[:subscriber][:subscribed] = true
