@@ -62,10 +62,9 @@ module Spree
 		end
 
 		def unsub
-			if @subscriber.is_subscribed?
+			if @user.flag_email?
 				begin
-					@subscriber.unsubscribe_from_all
-					@subscriber.destroy
+					@user.update_attribute(:flag_email, false)
 					flash[:notice] = "Inscrição retirada com sucesso"
 				rescue => e
 					flash[:notice] = "Não foi possível remover a inscrição"
@@ -84,8 +83,7 @@ module Spree
   		end
 
 		def load_subscriber
-			user = Spree::User.find_by_referral_token(params[:id])
-			@subscriber = Spree::Subscriber.find_by_email!(user.email)
+			@user = Spree::User.find_by_referral_token(params[:id])
 		end
 
 		def subscriber_parameters
